@@ -1,0 +1,12 @@
+# Revel ignores
+test-results/
+tmp/
+routes/
+
+# GoWalkhub ignores
+bower_components/
+node_modules/
+conf/app.conf
+public/css/app.css
+public/js/app.js
+public/jquery-ui

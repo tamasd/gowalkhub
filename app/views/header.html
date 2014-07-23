@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="gowalkhub">
+  <head>
+    <title>{{.title}}</title>
+	<base href="/" />
+	<meta name="fragment" content="!" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="/public/css/app.css">
+	<link rel="stylesheet" type="text/css" href="/public/jquery-ui/jquery-ui.min.css">
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+	<script type="text/javascript" charset="utf-8">
+		window.CSRF_TOKEN = {{.csrf_token}};
+		window.WALKHUB_PROXY_URL = {{.walkhub_proxy_url}};
+		window.Drupal = {
+			behaviors: {},
+			settings: {
+				basePath: "/"
+			},
+			t: function (s) { return s; }
+		};
+	</script>
+    <script src="/public/js/app.js" type="text/javascript" charset="utf-8"></script>
+    {{range .moreStyles}}
+      <link rel="stylesheet" type="text/css" href="/public/{{.}}">
+    {{end}}
+    {{range .moreScripts}}
+      <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+    {{end}}
+  </head>
+  <body>

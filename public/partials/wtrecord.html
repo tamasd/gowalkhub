@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="columns small-6 small-centered">
+	  <h3>Record walkthrough</h3>
+	</div>
+</div>
+<div class="row">
+	<form class="small-6 columns small-centered walkhub-record-form">
+		<div class="row">
+			<div class="small-12 columns">
+				<label>Title:
+					<input type="text" id="edit-title" name="title" ng-model="title" />
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<label>Starting URL:
+					<input class="edit-url" type="text" id="edit-url" name="url" ng-model="url" />
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<label>
+					<input class="edit-use-proxy" type="checkbox" id="edit-use-proxy" name="use-proxy" ng-model="use_proxy" />
+					Use proxy
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<button data-proxy-url="{{walkhub_proxy_url}}" class="edit-record" id="edit-record" name="op" value="Record" type="button">Record</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<h4>Recorded steps:</h3>
+				<ul id="steps"></ul>
+			</div>
+		</div>
+		<textarea style="display: none;" id="edit-steps" name="steps" cols="60" rows="5"></textarea>
+		<input style="display: none;" type="checkbox" id="edit-password-parameter" name="password_parameter" />
+		<div class="row">
+			<div class="small-12 columns">
+				<button class="button tiny radius" ng-click="save()">Save</button>
+			</div>
+		</div>
+	</form>
+</div>

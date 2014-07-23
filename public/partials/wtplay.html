@@ -1,0 +1,101 @@
+<div class="row">
+	<div class="columns small-6 small-centered">
+		<h3>{{walkthrough.name}}</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="small-6 columns small-centered">
+		<span ng-bind-html="walkthrough | playButton | trust">
+		</span>
+		<span ng-if="walkthroughCanEdit && !walkthroughEdit">
+			<a ng-click="startEdit()" class="button tiny">Edit</a>
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="small-6 columns small-centered" ng-bind-html="walkthrough.description">
+	</div>
+</div>
+<div class="row">
+	<div class="small-6 columns small-centered steps" ng-repeat="stepuuid in walkthrough.steps">
+		<h4 ng-if="steps[stepuuid].showTitle">{{steps[stepuuid].title}}</h4>
+		<p>{{steps[stepuuid].description}}</p>
+		<p>{{steps[stepuuid] | step}} <a ng-click="startStepEdit(stepuuid)" ng-if="walkthroughCanEdit && !stepEdit[stepuuid]" class="button tiny">Edit step</a></p>
+		<div class="row" ng-if="stepEdit[stepuuid]">
+			<form class="small-6 columns small-centered">
+				<div class="row">
+					<div class="small-12 columns">
+						<label>Title:
+							<input type="text" ng-model="steps[stepuuid].titleRaw" />
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<label>Show title:
+							<input type="checkbox" ng-model="steps[stepuuid].showTitle" />
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<label>Description:
+							<textarea ng-model="steps[stepuuid].descriptionRaw"></textarea>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<label>Command:
+							<input type="text" ng-model="steps[stepuuid].commandRaw" />
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<label>Arg1:
+							<input type="text" ng-model="steps[stepuuid].arg1" />
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<label>Arg2:
+							<input type="text" ng-model="steps[stepuuid].arg2" />
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-12 columns">
+						<button class="button tiny secondary radius" ng-click="cancelStep(stepuuid)">Cancel</button>
+						<button class="button tiny radius" ng-click="saveStep(stepuuid)">Save</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row" ng-if="walkthroughEdit">
+	<form class="small-6 columns small-centered">
+		<div class="row">
+			<div class="small-12 columns">
+				<label>Name:
+					<input type="text" ng-model="walkthrough.name" />
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+				<label>Description:
+					<textarea ng-model="walkthrough.description"></textarea>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+	          <button class="button tiny secondary radius" ng-click="cancel()">Cancel</button>
+	          <button class="button tiny radius" ng-click="save()">Save</button>
+			</div>
+		</div>
+	</form>
+</div>

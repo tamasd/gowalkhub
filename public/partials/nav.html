@@ -1,0 +1,37 @@
+<nav class="tab-bar show-for-small">
+	<a class="left-off-canvas-toggle menu-icon">
+		<span>GoWalkhub</span>
+	</a>
+</nav>
+<nav class="top-bar hide-for-small">
+	<ul class="title-area">
+		<li class="name">
+		<h1 class="logo">
+			<a href="/">GoWalkhub</a>
+		</h1>
+		</li>
+	</ul>
+
+	<section ng-if="userLoaded" class="top-bar-section">
+		<ul ng-if="loggedIn" class="right">
+			<li class="divider"></li>
+			<li class="not-click">
+				<a href="/walkthrough/record">Record</a>
+			</li>
+			<li class="divider"></li>
+			<li class="not-click">
+				<a href="/user/{{currentUser.Id}}">Profile</a>
+			</li>
+			<li class="divider"></li>
+			<li class="not-click">
+				<a target="_self" href="/logout?token={{csrfToken}}">Logout</a>
+			</li>
+			<li class="divider"></li>
+		</ul>
+		<ul ng-if="!loggedIn" class="right">
+			<li class="has-form">
+			<a target="_self" href="/login" class="small button">Login with Google</a>
+			</li>
+		</ul>
+	</section>
+</nav>

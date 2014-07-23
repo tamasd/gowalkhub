@@ -1,0 +1,55 @@
+<div class="row">
+	<div class="columns small-6 small-centered">
+	  <h3>Profile</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="columns small-6 small-centered">
+	  <div class="row">
+	    <div class="small-6 columns"><p><strong>Name:</strong></p></div>
+	    <div class="small-6 columns"><p ng-bind="user.Name"></p></div>
+	  </div>
+	  <div class="row">
+	    <div class="small-6 columns"><strong>E-mail:</strong></div>
+	    <div class="small-6 columns"><p ng-bind="user.Email"></p></div>
+	  </div>
+	  <div class="row" ng-if="!profileEdit">
+	    <div class="small-3 columns">
+	      <p><a class="button tiny secondary radius" ng-click="startEdit()">Edit</a></p>
+	    </div>
+	  </div>
+	  <div class="row" ng-if="profileEdit">
+	    <form class="small-12 columns">
+	      <div class="row">
+	        <div class="small-12 columns">
+	          <label>Name:
+	            <input type="text" ng-model="user.Name" />
+	          </label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="small-12 columns">
+	          <label>E-mail:
+	            <input type="email" ng-model="user.Email" />
+	          </label>
+	        </div>
+	      </div>
+	      <div class="row" ng-if="currentUser.Role == UserRoleAdmin">
+	        <div class="small-12 columns">
+	          <label>Role:
+				<span ng-repeat="(key, value) in UserRoles">
+					<input type="radio" ng-model="user.Role" value="{{key}}" id="role-{{key}}" /><label for="role-{{key}}">{{value}}</label>
+				</span>
+	          </label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="small-12 columns">
+	          <button class="button tiny secondary radius" ng-click="cancel()">Cancel</button>
+	          <button class="button tiny radius" ng-click="save()">Save</button>
+	        </div>
+	      </div>
+	    </form>
+	  </div>
+	</div>
+</div>

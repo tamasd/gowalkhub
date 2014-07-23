@@ -1,0 +1,9 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+<div ng-if="navbar" ng-include="'/public/partials/nav.html'"></div>
+<div class="view-container" id="main-container">
+	<div ng-view="view-frame"></div>
+</div>
+
+{{template "footer.html" .}}

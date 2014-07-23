@@ -1,0 +1,22 @@
+{
+  "name": "gowalkhub",
+  "version": "1.0.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*",
+    "angular-animate": "*",
+    "angular-resource": "*",
+    "angular-sanitize": "*",
+    "angular-markdown-directive": "*",
+    "foundation": "zurb/bower-foundation",
+	"jquery-ui": "*"
+  }
+}

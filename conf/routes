@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+module:testrunner
+
+GET     /                                       App.Index
+
+GET     /login                                  User.Login
+GET     /logout                                 User.Logout
+GET     /oauth2callback                         User.Callback
+GET     /api/user/me                            User.Me
+GET     /api/user/:id                           User.Get
+PUT     /api/user/:id                           User.Update
+GET     /api/walkthrough                        Walkthrough.ListWalkthroughs
+POST    /api/walkthrough                        Walkthrough.SaveRecordedWalkthrough
+
+GET     /api/v2/walkhub-walkthrough/:uuid       Walkthrough.GetWalkthrough
+PUT     /api/v2/walkhub-walkthrough/:uuid       Walkthrough.SaveWalkthrough
+GET     /api/v2/walkhub-step/:uuid              Walkthrough.GetStep
+PUT     /api/v2/walkhub-step/:uuid              Walkthrough.SaveStep
+
+GET     /services/session/token                 User.Token
+
+GET     /walkhub                                App.Walkhub
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# Catch all
+#*       /:controller/:action                    :controller.:action
+
+# Angularjs support
+GET     /*                                      App.Index

@@ -1,0 +1,72 @@
+app.name=gowalkhub
+app.secret=
+http.addr=
+http.port=3000
+http.ssl=false
+http.sslcert=
+http.sslkey=
+cookie.httponly=false
+cookie.prefix=REVEL
+cookie.secure=false
+format.date=01/02/2006
+format.datetime=01/02/2006 15:04
+results.chunked=false
+
+log.trace.prefix = "TRACE "
+log.info.prefix  = "INFO  "
+log.warn.prefix  = "WARN  "
+log.error.prefix = "ERROR "
+
+csrf.token.length = 128
+csrf.ajax = true
+
+# The default language of this application.
+i18n.default_language=en
+
+module.static=github.com/revel/revel/modules/static
+
+# APP settings
+
+# DB settings
+db.user =
+db.pass =
+db.host = localhost:3306
+db.name =
+
+# Google OAuth2 settings
+oauth.client.id =
+oauth.client.secret =
+oauth.redirect.url =
+
+# Cache settings
+usercache.size = 65536
+walkthroughcache.size = 262144
+stepcache.size = 262144
+
+# Walkthrough proxy URL
+walkthrough.proxy_url =
+
+[dev]
+http.addr=localhost
+mode.dev=true
+results.pretty=true
+watch=true
+
+module.testrunner = github.com/revel/revel/modules/testrunner
+
+log.trace.output = off
+log.info.output  = stderr
+log.warn.output  = stderr
+log.error.output = stderr
+
+[prod]
+mode.dev=false
+results.pretty=false
+watch=false
+
+module.testrunner =
+
+log.trace.output = off
+log.info.output  = off
+log.warn.output  = %(app.name)s.log
+log.error.output = %(app.name)s.log
